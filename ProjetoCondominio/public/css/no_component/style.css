@@ -127,9 +127,10 @@ form {
 
 input.form-control::placeholder {
     color: #c8c8c8 !important;
+    font-size: 13px;
 }
 
-input:focus {
+input.form-control:focus {
     outline: none;
     box-shadow: 0 0 0;
 }

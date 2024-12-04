@@ -5,9 +5,6 @@
         <div class="container" id="registerForm">
             <div class="row register">
                 <div class="col-lg-5 col-md-8 login-box">
-                    {{-- <div class="col-lg-12 login-key">
-                    <i class="fa fa-key" aria-hidden="true"></i>
-                </div> --}}
                     <div class="col-lg-12 login-back">
                         <a href="{{ route('login') }}" id="ancoraText">Voltar</a>
                     </div>
@@ -68,7 +65,6 @@
                             </div>
                         </form>
                     </div>
-                    {{-- <div class="col-lg-3 col-md-2"></div> --}}
                 </div>
             </div>
         </div>
