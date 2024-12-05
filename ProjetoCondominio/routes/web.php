@@ -25,6 +25,7 @@ Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');
 Route::get('/register', [RegisterController::class, 'showRegisterForm'])->name('register');
 Route::post('/register', [RegisterController::class, 'register']);
 
-Route::fallback(function () {
+/* Route::fallback(function () {
     return redirect()->route('login');
 });
+ */

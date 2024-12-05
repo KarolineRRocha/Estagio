@@ -16,26 +16,12 @@ class LogoutController extends Controller
      *
      * @return RedirectResponse
      */
-    /*     public function logout()
+    public function logout()
     {
         // Realiza o logout
         Auth::logout();
 
         // Redireciona o usuário para a página inicial ou outra página após o logout
         return redirect()->route('login')->with('success', 'Você foi desconectado com sucesso!');
-    } */
-
-    public function logout(Request $request)
-    {
-        $googleUser = Socialite::driver('google')->user();
-        $user = User::where('google_id', $googleUser->id)->first();
-
-        if ($user) {
-            Auth::logout($user);
-            return redirect()->route('login');
-        } else {
-            Auth::logout();
-            return redirect()->route('login');
-        }
     }
 }

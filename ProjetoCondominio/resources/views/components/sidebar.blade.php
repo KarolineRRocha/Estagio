@@ -85,12 +85,15 @@
             </li>
 
             <li class="has-subnav {{-- {{ request()->is('coruses') ? 'active' : '' }} --}}">
-                <a href="route('logout') }}">
-                    <i class="fa fa-sign-out"></i>
-                    <span class="nav-text">
-                        Logout
-                    </span>
-                </a>
+                <form action="{{ route('logout') }}" method="post" id="formLogout">
+                    @csrf
+                    <button type="submit" class="btn buttonLogout">
+                        <i class="fa fa-sign-out"></i>
+                        <span class="nav-textLogout">
+                            Logout
+                        </span>
+                    </button>
+                </form>
             </li>
         </ul>
     </aside>

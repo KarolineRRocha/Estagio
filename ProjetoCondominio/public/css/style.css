@@ -103,19 +103,15 @@ body {
 }
 
 /* Ícones no menu */
-#icons {
+/* #icons {
     color: #25183E;
     font-size: 1.4em;
     margin-left: 1.2em;
-}
+} */
 
-#icons:hover {
+/* #icons:hover {
     color: #605a87;
-}
-
-.btn:hover {
-    color: #000000 !important;
-}
+} */
 
 /* Adiciona estilo a links dentro do dropdown */
 a {
@@ -123,11 +119,7 @@ a {
 }
 
 a:hover {
-    color: #3B3061;
-}
-
-#buuton {
-    background-color: #fff;
+    color: white;
 }
 
 /* Sidebar */
@@ -157,7 +149,7 @@ aside.main-menu.expanded {
     overflow: hidden;
     height: 100%;
     width: 60px;
-    background-color: rgba(150, 184, 250, 0.5);
+    /* background-color: rgba(150, 184, 250, 0.5); */
     border-right: 1px solid #e5e5e5;
     transition: width 0.3s ease;
 }
@@ -169,6 +161,7 @@ aside.main-menu.expanded {
 .main-menu li {
     position: relative;
     display: block;
+    align-items: center;
     width: 250px;
     padding-top: 0.8em;
 }
@@ -191,8 +184,41 @@ aside.main-menu.expanded {
     -webkit-transform: translateZ(0) scale(1, 1);
     -webkit-transition: all .1s linear;
     transition: all .1s linear;
-
 }
+
+.buttonLogout {
+    border: none !important;
+    color: #0d43aa !important;
+    font-size: 14px !important;
+    padding-block: 0 !important;
+    padding-inline: 0 !important;
+}
+
+.buttonLogout:hover {
+    color: white !important;
+}
+
+#formLogout:hover {
+    background-color: rgba(150, 184, 250, 0.5);
+}
+
+.nav-textLogout {
+    left: 0 !important;
+    padding: 0 !important;
+}
+
+/* #buttonLogout {
+    width: 100%;
+    left: 0;
+    display: flex;
+    border: none;
+    border-collapse: collapse;
+    border-spacing: 0;
+    color: #0d43aa;
+    font-size: 14px;
+    padding: 0 !important;
+    background-color: none;
+} */
 
 .main-menu .nav-text {
     position: relative;
@@ -227,6 +253,7 @@ aside {
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
+    background-color: rgba(150, 184, 250, 0.5) !important;
 }
 
 aside ul,
@@ -237,7 +264,6 @@ aside li {
 }
 
 .main-menu li:hover>a,
-/* aside.main-menu li.active>a, */
 .dropdown-menu>li>a:hover,
 .dropdown-menu>li>a:focus,
 .dropdown-menu>.active>a,
@@ -245,8 +271,8 @@ aside li {
 .dropdown-menu>.active>a:focus,
 .no-touch .dashboard-page aside.dashboard-menu ul li:hover a,
 .dashboard-page aside.dashboard-menu ul li.active a {
-    color: white;
-    background-color: rgba(150, 184, 250, 0.5);
+    color: white !important;
+    background-color: rgba(150, 184, 250, 0.5) !important;
 }
 
 .has-subnav.active a {
