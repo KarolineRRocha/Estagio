@@ -49,7 +49,9 @@
                             </div>
                             <div class="col-lg-6">
                                 <img class="icons" src="{{ asset('images/googleIcon.png') }}" alt="facebookIcon">
-                                <span class="spanIcons">Google</span>
+                                <a href="{{ route('auth.google') }}">
+                                    <span class="spanIcons">Google</span>
+                                </a>
                             </div>
                         </div>
 
