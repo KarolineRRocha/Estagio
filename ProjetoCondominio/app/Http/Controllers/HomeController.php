@@ -14,6 +14,20 @@ class HomeController extends Controller
         return view('home.index');
     }
 
+    public function someProtectedAction()
+    {
+        if (session('login_method') === 'google') {
+            $googleToken = session('google_token');
+            // Realizar lógica para quem fez login pelo Google, como usar o token em APIs.
+            return view('dashboard.google', compact('googleToken'));
+        } elseif (session('login_method') === 'form') {
+            // Realizar lógica para quem fez login pelo formulário.
+            return view('dashboard.form');
+        } else {
+            return redirect()->route('login')->with('error', 'Acesso negado.');
+        }
+    }
+
     /**
      * Show the form for creating a new resource.
      */

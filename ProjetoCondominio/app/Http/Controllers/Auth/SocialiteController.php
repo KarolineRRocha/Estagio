@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use Exception;
+use App\Models\User;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+
 use Illuminate\Support\Facades\Hash;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -33,25 +33,27 @@ class SocialiteController extends Controller
     {
         try {
             $googleUser = Socialite::driver('google')->user();
+
+            // Salvar o token na sessão ou no banco
+            session(['google_access_token' => $googleUser->token]);
+
             $user = User::where('google_id', $googleUser->id)->first();
 
             if ($user) {
                 Auth::login($user);
-                return redirect()->route('home');
             } else {
-                $userData = User::create([
+                $user = User::updateOrCreate([
+                    'google_id' => $googleUser->id,
+                ], [
                     'name' => $googleUser->name,
                     'email' => $googleUser->email,
-                    'password' => Hash::make('Password@1234'),
-                    'google_id' => $googleUser->id,
-                    'avatar' => $googleUser->avatar
+                    'avatar' => $googleUser->avatar,
+                    'password' => Hash::make('defaultpassword'),
                 ]);
-
-                if ($userData) {
-                    Auth::login($userData);
-                    return redirect()->route('home');
-                }
+                Auth::login($user);
             }
+
+            return redirect()->route('home');
         } catch (Exception $e) {
             dd($e);
         }
