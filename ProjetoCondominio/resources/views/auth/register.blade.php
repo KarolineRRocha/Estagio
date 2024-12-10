@@ -1,72 +1,62 @@
-@extends('layouts.app_no_components')
+<div id="registerBg">
+    <x-guest-layout class="register">
+        <div class="registerForm">
+            <form method="POST" action="{{ route('register') }}">
+                @csrf
 
-@section('content')
-    <div class="backgroundRegister">
-        <div class="container" id="registerForm">
-            <div class="row register">
-                <div class="col-lg-5 col-md-8 login-box">
-                    <div class="col-lg-12 login-back">
-                        <a href="{{ route('login') }}" id="ancoraText">Voltar</a>
-                    </div>
-                    <div class="col-lg-12 login-title">
-                        Registre-se!
-                    </div>
-
-                    <div class="col-lg-12 register-form">
-                        <form method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <div class="form-group">
-                                <label class="form-control-label">Nome</label>
-                                <input id="name" type="text"
-                                    class="form-control @error('name') is-invalid @enderror" name="name"
-                                    value="{{ old('name') }}" required autofocus placeholder="Seu nome">
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">Email</label>
-                                <input id="email" type="email"
-                                    class="form-control @error('email') is-invalid @enderror" name="email"
-                                    value="{{ old('email') }}" required autofocus placeholder="email@email.com">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                            <div class="form-group">
-                                <label class="form-control-label">Senha</label>
-                                <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror" name="password" required
-                                    placeholder="Sua senha">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-
-                            <div class="form-group">
-                                <label class="form-control-label">Confirme a senha</label>
-                                <input id="password_confirmation" type="password" class="form-control"
-                                    name="password_confirmation" required placeholder="Confirme a senha">
-                            </div>
-
-                            <div class="col-lg-12 loginbttm">
-                                <div class="col-lg-12 login-btm login-button">
-                                    <button type="submit" class="btn btnForm">CRIAR CONTA</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
+                <div class="flex justify-center mt-4 px-4 py-6">
+                    <p class="title">Registre-se!</p>
                 </div>
-            </div>
+
+                <!-- Name -->
+                <div>
+                    <x-input-label for="name" :value="__('Name')" />
+                    <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')"
+                        required autofocus autocomplete="name" placeholder="Nome" />
+                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                </div>
+
+                <!-- Email Address -->
+                <div class="mt-4">
+                    <x-input-label for="email" :value="__('Email')" />
+                    <x-text-input id="email" class="block mt-1 w-full" type="email" name="email"
+                        :value="old('email')" required autocomplete="username" placeholder="email@email.com" />
+                    <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                </div>
+
+                <!-- Password -->
+                <div class="mt-4">
+                    <x-input-label for="password" :value="__('Senha')" />
+
+                    <x-text-input id="password" class="block mt-1 w-full" type="password" name="password" required
+                        autocomplete="new-password" placeholder="Senha" />
+
+                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mt-4">
+                    <x-input-label for="password_confirmation" :value="__('Confirme sua senha')" />
+
+                    <x-text-input id="password_confirmation" class="block mt-1 w-full" type="password"
+                        name="password_confirmation" required autocomplete="new-password"
+                        placeholder="Confirme sua senha" />
+
+                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                </div>
+
+                <div class="flex justify-center mt-4 py-4">
+                    <x-guest-button class="ms-4 bg-mediumBlue w-full">
+                        {{ __('Criar conta') }}
+                    </x-guest-button>
+                </div>
+
+                <div class="flex items-center justify-center mt-4">
+                    <a id="aRegister" href="{{ route('login') }}">
+                        {{ __('Já possui conta?') }}
+                    </a>
+                </div>
+            </form>
         </div>
-    </div>
-@endsection
+    </x-guest-layout>
+</div>

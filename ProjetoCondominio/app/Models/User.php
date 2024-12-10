@@ -12,9 +12,6 @@ class User extends Authenticatable
     /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
-    const TYPE_ADMIN = 'Admin';
-    const TYPE_MODERATOR = 'Moderator';
-
     /**
      * The attributes that are mass assignable.
      *
@@ -22,13 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'avatar',
         'email',
-        'email_verified_at',
         'password',
-        'user_type',
-        'google_id',
-        'google_token',
-        'google_refresh_token'
+        'auth_provider',
+        'auth_provider_id',
     ];
 
     /**
@@ -39,10 +34,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
         'remember_token',
-    ];
-
-    protected $casts = [
-        'user_type' => 'string',
     ];
 
     /**
