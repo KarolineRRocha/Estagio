@@ -39,7 +39,7 @@
 
                             <img class="user-avatar" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
 
-                            {{ Auth::user()->name }}
+                            <p class="px-2">{{ Auth::user()->name }}</p>
 
                             <div class="ms-1">
                                 <i class="fa-solid fa-chevron-down px-2"></i>
@@ -48,31 +48,38 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link {{-- :href="route('profile.edit')" --}}>
+                        <div class="px-2 py-2">
+                            {{-- <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Informações Pessoais') }}
-                        </x-dropdown-link>
+                            </x-dropdown-link> --}}
 
-                        <x-dropdown-link {{-- :href="route('profile.edit')" --}}>
-                            {{ __('Lista de Favoritos') }}
-                        </x-dropdown-link>
-
-                        <x-dropdown-link {{-- :href="route('profile.edit')" --}}>
-                            {{ __('Meus Anúncios') }}
-                        </x-dropdown-link>
-
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Configurações') }}
-                        </x-dropdown-link>
-
-                        <!-- Authentication -->
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                                this.closest('form').submit();">
-                                {{ __('Logout') }}
+                            <x-dropdown-link {{-- :href="route('profile.edit')" --}} class="mg">
+                                <i class="fas fa-heart mgr"></i>
+                                {{ __('Lista de Favoritos') }}
                             </x-dropdown-link>
-                        </form>
+
+                            <x-dropdown-link {{-- :href="route('profile.edit')" --}} class="mg">
+                                <i class="fas fa-bullhorn mgr"></i>
+                                {{ __('Meus Anúncios') }}
+                            </x-dropdown-link>
+
+                            <x-dropdown-link :href="route('profile.edit')" class="mg">
+                                <i class="fas fa-cog mgr"></i>
+                                {{ __('Configurações') }}
+                            </x-dropdown-link>
+
+                            <!-- Authentication -->
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <x-dropdown-link :href="route('logout')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();"
+                                    class="mg">
+                                    <i class="fas fa-sign-out-alt mgr"></i>
+                                    {{ __('Logout') }}
+                                </x-dropdown-link>
+                            </form>
+                        </div>
                     </x-slot>
                 </x-dropdown>
             </div>

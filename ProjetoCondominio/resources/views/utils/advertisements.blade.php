@@ -9,7 +9,7 @@
     <ul class="nav nav-tabs flex navTabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="internal-tab" data-bs-toggle="tab" data-bs-target="#internal-tab-pane"
-                type="button" role="tab" aria-controls="internal-tab-pane" aria-selected="true">Anúnicos
+                type="button" role="tab" aria-controls="internal-tab-pane" aria-selected="true">Anúncios
                 Internos</button>
         </li>
         <li class="nav-item" role="presentation">
@@ -17,13 +17,12 @@
                 type="button" role="tab" aria-controls="external-tab-pane" aria-selected="false">Anúncios
                 Externos</button>
         </li>
-        <li class="nav-item" role="presentation">
+        <li class="nav-item ml-auto" role="presentation">
             <div class="search-wrapper">
                 <input class="search-input" type="text" placeholder="Search">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     class="feather feather-search" viewBox="0 0 24 24">
-                    <defs></defs>
                     <circle cx="11" cy="11" r="8"></circle>
                     <path d="M21 21l-4.35-4.35"></path>
                 </svg>
@@ -130,9 +129,6 @@
                         </div>
                     </section>
                 </main>
-                <footer>
-                    <a href="#"><i class="fa-solid fa-circle-arrow-up fa-2x"></i></a>
-                </footer>
             </div>
         </div>
 
@@ -141,18 +137,6 @@
             tabindex="0">
             <div class="content">
                 <main>
-                    <div class="containerInput">
-                        <div class="search-wrapper">
-                            <input class="search-input" type="text" placeholder="Search">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
-                                stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
-                                <defs></defs>
-                                <circle cx="11" cy="11" r="8"></circle>
-                                <path d="M21 21l-4.35-4.35"></path>
-                            </svg>
-                        </div>
-                    </div>
                     <section class="section">
                         <div class="cards">
                             <header class="header flex justify-between header-cards">
@@ -247,12 +231,10 @@
                         </div>
                     </section>
                 </main>
-                <footer>
-                    <header>
-                        <a href="#"><i class="fa-solid fa-circle-arrow-up fa-2x"></i></a>
-                    </header>
-                </footer>
             </div>
         </div>
     </div>
+    <footer>
+        <a href="#"><i class="fa-solid fa-circle-arrow-up fa-2x custom-color"></i></a>
+    </footer>
 </x-app-layout>
