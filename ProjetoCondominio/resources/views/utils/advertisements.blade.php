@@ -174,7 +174,6 @@
                                 alt="">
                             <p class="titleSale">Viajando</p>
                         </div>
-
                         <div class="cards">
                             <header class="header flex justify-between header-cards">
                                 <h3>Maria</h3>
@@ -235,6 +234,6 @@
         </div>
     </div>
     <footer>
-        <a href="#"><i class="fa-solid fa-circle-arrow-up fa-2x custom-color"></i></a>
+        <a href="#"><i class="fa-solid fa-circle-arrow-up custom-color"></i></a>
     </footer>
 </x-app-layout>
