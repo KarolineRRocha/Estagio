@@ -24,7 +24,7 @@
                         {{ __('Anúncios') }}
                     </x-nav-link>
 
-                    <x-nav-link {{-- :href="route('dashboard')" :active="request()->routeIs('dashboard')" --}}>
+                    <x-nav-link :href="route('mensagens')" :active="request()->routeIs('mensagens')">
                         {{ __('Mensagens') }}
                     </x-nav-link>
                 </div>
@@ -37,7 +37,9 @@
                         <button
                             class="inline-flex items-center px-4 py-2 border-transparent text-md leading-4 font-medium rounded-md text-gray-500 hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
 
-                            <img class="user-avatar" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
+                            <img class="user-avatar"
+                                src="{{ Auth::user()->avatar ? Auth::user()->avatar : asset('images/profile.png') }}"
+                                alt="{{ Auth::user()->name }}">
 
                             <p class="px-2">{{ Auth::user()->name }}</p>
 
@@ -48,7 +50,7 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <div class="px-2 py-2">
+                        <div class="px-2 py-2" style="width: 14em">
                             {{-- <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Informações Pessoais') }}
                             </x-dropdown-link> --}}
@@ -102,24 +104,23 @@
 
     <!-- Responsive Navigation Menu -->
     <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
+        {{--         <div class="pt-2 pb-3 space-y-1">
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
-        </div>
+        </div> --}}
 
         <!-- Responsive Settings Options -->
-        <div class="mt-3 space-y-1">
-            <div class="px-4">
-                {{-- <div class="flex inline-flex">
-                    <img class="user-avatar" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"> --}}
-                <p class="font-medium text-base text-gray-700">{{ Auth::user()->name }}</p>
-                {{-- </div> --}}
+        <div class="mt-3 py-2">
+            <div
+                class="flex w-full ps-3 {{-- pe-4  --}} py-2 border-l-4 border-transparent font-medium text-gray-600 hover:text-gray-800 hover:bg-gray-50 hover:border-gray-300 focus:outline-none focus:text-gray-800 focus:bg-gray-50 focus:border-gray-300 transition duration-150 ease-in-out">
+                <img class="user-avatar"
+                    src="{{ Auth::user()->avatar ? Auth::user()->avatar : asset('images/profile.png') }}"
+                    alt="{{ Auth::user()->name }}">
+                <p class="font-medium text-gray-700">{{ Auth::user()->name }}</p>
                 {{-- <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }} --}}
             </div>
-        </div>
 
-        <div class="mt-3 space-y-1">
             <x-responsive-nav-link :href="route('profile.edit')">
                 {{ __('Perfil') }}
             </x-responsive-nav-link>
