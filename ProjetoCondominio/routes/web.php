@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvertisementController;
 use App\Http\Controllers\ApartmentsComplexController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SocialiteController;
@@ -21,7 +22,11 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth')->group(function () {
-    Route::get('/meuCondominio', [ApartmentsComplexController::class, 'show'])->name('apartmentsComplex');
+    Route::get('/condominio', [ApartmentsComplexController::class, 'show'])->name('apartmentsComplex');
+});
+
+Route::middleware('auth')->group(function () {
+    Route::get('/anuncios', [AdvertisementController::class, 'index'])->name('advertisement');
 });
 
 require __DIR__ . '/auth.php';

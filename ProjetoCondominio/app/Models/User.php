@@ -19,9 +19,11 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
-        'avatar',
         'email',
         'password',
+        'avatar',
+        'address',
+        'birthdate',
         'auth_provider',
         'auth_provider_id',
     ];
@@ -35,6 +37,13 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function getAvatarUrlAttribute()
+    {
+        return $this->avatar
+            ? asset('storage/' . $this->avatar)
+            : asset('/images/profile.png');
+    }
 
     /**
      * Get the attributes that should be cast.
