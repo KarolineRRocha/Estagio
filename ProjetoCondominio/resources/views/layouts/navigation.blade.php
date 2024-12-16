@@ -1,6 +1,6 @@
 <nav x-data="{ open: false }" class="bg-nav border-b border-gray-100">
     <!-- Primary Navigation Menu -->
-    <div class="max-w-7xl mx-auto px-8 sm:px-6 lg:px-8">
+    <div class="mx-auto px-8 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
@@ -24,7 +24,7 @@
                         {{ __('Anúncios') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('mensagens')" :active="request()->routeIs('mensagens')">
+                    <x-nav-link :href="route('chats')" :active="request()->routeIs('mensagens')">
                         {{ __('Mensagens') }}
                     </x-nav-link>
                 </div>
