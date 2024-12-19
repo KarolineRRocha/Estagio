@@ -16,7 +16,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/mensagens', function () {
-    return ('/chats');
+    return view('chat.chat');
 })->middleware(['auth', 'verified'])->name('mensagens');
 
 Route::middleware('auth')->group(function () {
