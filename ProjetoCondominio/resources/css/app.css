@@ -2585,3 +2585,53 @@ footer {
 .custom-color:hover {
     color: var(--mediumBlue);
 }
+
+
+/* Chat Page */
+.bodyChat {
+    min-height: 100vh;
+    margin: 0.5em !important;
+    border-radius: 10px;
+}
+
+.leftSide {
+    width: 25%;
+    padding: 1em 0 1em 0;
+    border-right: 1px solid #dee2e6;
+}
+
+/* .rightSide {
+
+} */
+
+.titleChat {
+    font-size: x-large;
+    font-weight: bolder;
+}
+
+.bg-blue-100 {
+    background-color: var(--lightBlueOpacity);
+}
+
+.bgIcon-gray-100 {
+    --tw-bg-opacity: 1;
+    background-color: rgb(243 244 246);
+}
+
+.textIcon-gray-300 {
+    color: rgb(209 213 219);
+}
+
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.gap-x-2 {
+    column-gap: 0.5rem;
+}
